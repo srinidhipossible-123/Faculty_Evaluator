@@ -1,6 +1,5 @@
-const BASE_URL = import.meta.env?.PROD
-  ? (import.meta.env.VITE_BACKEND_URL || (typeof window !== 'undefined' ? window.location.origin : ''))
-  : '';
+const PROD_BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://faculty-evaluator-14yw.onrender.com';
+const BASE_URL = import.meta.env?.PROD ? PROD_BACKEND_URL : '';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -61,7 +60,7 @@ export const api = {
 
 export function getSocketUrl() {
   const base = import.meta.env?.PROD
-    ? (import.meta.env.VITE_BACKEND_URL || process.env.REACT_APP_BACKEND_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8001'))
+    ? (import.meta.env.VITE_BACKEND_URL || 'https://faculty-evaluator-14yw.onrender.com')
     : (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8001');
   try {
     const u = new URL(base);
