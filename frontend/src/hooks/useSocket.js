@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
 
-const getBackendUrl = () => 'https://faculty-evaluator.onrender.com';
+const getBackendUrl = () =>
+  import.meta.env.VITE_BACKEND_URL ||
+  (import.meta.env?.DEV ? '' : (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8001'));
 
 export function useAdminSocket(onEvaluationUpdate) {
   const [connected, setConnected] = useState(false);
