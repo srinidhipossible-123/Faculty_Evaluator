@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 
 const getBackendUrl = () =>
   import.meta.env.VITE_BACKEND_URL ||
-  (import.meta.env?.PROD ? 'https://faculty-evaluator-14yw.onrender.com' : '');
+  (import.meta.env?.DEV ? '' : (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8001'));
 
 export function useAdminSocket(onEvaluationUpdate) {
   const [connected, setConnected] = useState(false);
