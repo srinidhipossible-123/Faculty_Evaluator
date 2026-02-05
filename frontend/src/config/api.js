@@ -1,4 +1,4 @@
-const BASE_URL = 'https://faculty-evaluator.onrender.com';
+const BASE_URL = 'https://faculty-evaluator-14yw.onrender.com';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -58,5 +58,5 @@ export const api = {
 };
 
 export function getSocketUrl() {
-  return 'wss://faculty-evaluator.onrender.com';
+  return 'wss://faculty-evaluator-14yw.onrender.com';
 }
