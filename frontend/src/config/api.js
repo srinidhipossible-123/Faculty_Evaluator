@@ -1,6 +1,4 @@
-const BASE_URL = import.meta.env?.PROD
-  ? (import.meta.env.VITE_BACKEND_URL || (typeof window !== 'undefined' ? window.location.origin : ''))
-  : '';
+const BASE_URL = 'https://faculty-evaluator.onrender.com';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -60,13 +58,5 @@ export const api = {
 };
 
 export function getSocketUrl() {
-  const base = import.meta.env?.PROD
-    ? (import.meta.env.VITE_BACKEND_URL || process.env.REACT_APP_BACKEND_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8001'))
-    : (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8001');
-  try {
-    const u = new URL(base);
-    return `${u.protocol === 'https:' ? 'wss' : 'ws'}://${u.host}`;
-  } catch {
-    return 'ws://localhost:8001';
-  }
+  return 'wss://faculty-evaluator.onrender.com';
 }
