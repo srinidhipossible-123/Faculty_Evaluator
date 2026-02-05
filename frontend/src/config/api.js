@@ -66,6 +66,6 @@ export function getSocketUrl() {
     const u = new URL(base);
     return `${u.protocol === 'https:' ? 'wss' : 'ws'}://${u.host}`;
   } catch {
-    return 'ws://localhost:8001';
+    return import.meta.env?.PROD ? 'wss://faculty-evaluator-14yw.onrender.com' : 'ws://localhost:8001';
   }
 }
